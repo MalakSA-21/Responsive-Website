@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Web Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .main-header {
+            width: 100%;
+        }
+        
+        .header-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.8);
+        }
+        
+        .nav-menu {
+            display: flex;
+            background-color: #2c3e50;
+            padding: 15px 0;
+        }
+        
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .nav-menu li {
+            margin: 0 20px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-menu a:hover {
+            background-color: #3498db;
+        }
+        
+        .content-container {
+            display: flex;
+            flex: 1;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background-color: white;
+            color: #333;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar-section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+        
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #3498db;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sidebar-content {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .sidebar-content ul {
+            list-style: none;
+            padding-left: 5px;
+        }
+        
+        .sidebar-content li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .sidebar-content li a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .sidebar-content li a:hover {
+            color: #2c3e50;
+        }
+        
+        .contact-info {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: #2c3e50;
+        }
+        
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            background-color: white;
+            overflow-y: auto;
+        }
+        
+        .content-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-author {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        details {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        details summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 15px 0;
+            list-style: none;
+        }
+        
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        details summary .section-title {
+            margin-bottom: 0;
+        }
+        
+        details summary .toggle-arrow {
+            font-size: 20px;
+            transition: transform 0.3s;
+            padding: 10px;
+            color: #3498db;
+        }
+        
+        details[open] summary .toggle-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .section-content {
+            padding-bottom: 20px;
+        }
+        
+        .privacy-section {
+            margin-bottom: 30px;
+        }
+        
+        .privacy-section h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .privacy-section p, .privacy-section ul {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .privacy-section ul {
+            padding-left: 20px;
+        }
+        
+        .media-player {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .music-image-container {
+            width: 80px;
+            height: 80px;
+            margin-right: 15px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .music-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .audio-controls {
+            flex: 1;
+        }
+        
+        .audio-controls audio {
+            width: 100%;
+            outline: none;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .music-video-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .music-video-title {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .skill-item {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .map-container {
+            height: 400px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .map-link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #3498db;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .portfolio-item {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-details {
+            padding: 20px;
+        }
+        
+        .portfolio-details h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        .footer-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #3498db;
+        }
+        
+        .footer-contact {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .page-content {
+            display: none;
+        }
+        
+        .active-page {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                order: 2;
+            }
+            
+            .main-content {
+                order: 1;
+            }
+            
+            .nav-menu ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-menu li {
+                margin: 5px 0;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-image {
+                height: 200px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <header class="main-header">
+            <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Website Header" class="header-image">
+            <nav class="nav-menu">
+                <ul>
+                    <li><a onclick="showPage('home')"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a onclick="showPage('portfolio')"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+                    <li><a onclick="showPage('about')"><i class="fas fa-user"></i> About</a></li>
+                    <li><a onclick="showPage('contact')"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="content-container">
+            <aside class="sidebar">
+                <div id="sidebar-content"></div>
+            </aside>
+            
+            <main class="main-content">
+                <div id="home" class="page-content active-page">
+                    <details open>
+                        <summary>
+                            <h2 class="section-title"><i class="fas fa-quran"></i> Intro</h2>
+                            <div class="toggle-arrow">▼</div>
+                        </summary>
+                        <div class="section-author"><i class="fas fa-user"></i> by: Malak Salama</div>
+                        <div class="section-content">
+                            <div class="media-player">
+                                <div class="music-image-container">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Surah_Al-Nasr.png/500px-Surah_Al-Nasr.png" class="music-image">
+                                </div>
+                                <div class="audio-controls">
+                                    <audio controls>
+                                        <source src="https://server11.mp3quran.net/yasser/110.mp3" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                            
+                            <p>Surah An-Nasr (Arabic: سورة النصر) is the 110th chapter of the Quran with 3 verses. It is one of the shortest surahs in the Quran. The surah is named "An-Nasr" which means "The Help" or "The Victory" in English.</p>
+                            
+                            <p>This surah was revealed in Medina during the final years of the Prophet Muhammad's (PBUH) life. It speaks about the coming victory of Islam and the acceptance of the religion by the people in large numbers.</p>
+                            
+                            <p>The main themes of this surah are:</p>
+                            <ul>
+                                <li>Announcement of Allah's help and victory</li>
+                                <li>People entering Islam in multitudes</li>
+                                <li>Glorification and praise of Allah</li>
+                                <li>Seeking forgiveness from Allah</li>
+                            </ul>
+                        </div>
+                    </details>
+                    
+                    <details open>
+                        <summary>
+                            <h2 class="section-title"><i class="fas fa-quran"></i> Surah An-Nasr</h2>
+                            <div class="toggle-arrow">▼</div>
+                        </summary>
+                        <div class="section-author"><i class="fas fa-user"></i> by: Malak Salama</div>
+                        <div class="section-content">
+                            <div class="video-container">
+                             <iframe width="420" height="315" src="https://www.youtube.com/embed/oT4861wj5lo?autoplay=1&mute=1"></iframe>   
+                            </div>
+                            
+                            <p>Surah An-Nasr is a very important surah in the Quran. Here is the translation of its verses:</p>
+                            
+                            <p><strong>1. When the victory of Allah has come and the conquest,</strong><br>
+                            <strong>2. And you see the people entering into the religion of Allah in multitudes,</strong><br>
+                            <strong>3. Then exalt [Him] with praise of your Lord and ask forgiveness of Him. Indeed, He is ever Accepting of repentance.</strong></p>
+                            
+                            <p>This surah carries a profound message about gratitude to Allah for His blessings and the importance of seeking forgiveness even in times of victory and success.</p>
+                            
+                            <div class="skills-grid">
+                                <div class="skill-item"><i class="fas fa-book"></i> Quran Recitation</div>
+                                <div class="skill-item"><i class="fas fa-language"></i> Arabic</div>
+                                <div class="skill-item"><i class="fas fa-pray"></i> Tafseer</div>
+                                <div class="skill-item"><i class="fas fa-mosque"></i> Islamic Studies</div>
+                            </div>
+                        </div>
+                    </details>
+                    
+                    <details open>
+                        <summary>
+                            <h2 class="section-title"><i class="fas fa-child"></i> Surah An-Nasr for Kids</h2>
+                            <div class="toggle-arrow">▼</div>
+                        </summary>
+                        <div class="section-author"><i class="fas fa-user"></i> by: Malak Salama</div>
+                        <div class="section-content">
+                            <p>Teaching Surah An-Nasr to children is a wonderful way to introduce them to the Quran. Here's a child-friendly explanation:</p>
+                            
+                            <div class="music-video-container">
+                                <div class="video-container">
+                                    <iframe src="https://www.youtube.com/embed/jboGU-z8rcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="music-video-title">Surah An-Nasr for Kids</div>
+                            </div>
+                            
+                            <p>Key lessons for children from Surah An-Nasr:</p>
+                            <ul>
+                                <li>Allah helps those who follow His path</li>
+                                <li>We should be grateful to Allah for His blessings</li>
+                                <li>Even when we succeed, we should ask Allah for forgiveness</li>
+                                <li>Islam is a religion that welcomes everyone</li>
+                            </ul>
+                        </div>
+                    </details>
+                    
+                    <details open>
+                        <summary>
+                            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Where I Study</h2>
+                            <div class="toggle-arrow">▼</div>
+                        </summary>
+                        <div class="section-author"><i class="fas fa-user"></i> by: Malak Salama</div>
+                        <div class="section-content">
+                            <p>Al-Aqsa University (Arabic: جامعة الأقصى) is a Palestinian university established in 1955 in the Gaza Strip, 
+                            Palestine. Established in 1955 as the first higher education institution, Al-Aqsa University is the oldest 
+                            governmental higher education institution. It caters for some 26000 students and has some 1400 employees, 
+                            300 of whom are lecturers and professors.</p>
+                            
+                            <div class="map-container">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1798.9140937525822!2d34.274680377672055!3d31.357106098380196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14fd90f02c0cf82f%3A0x6ce0ca64d63854c9!2sAqsa%20Khan%20University!5e1!3m2!1sen!2sus!4v1743610027837!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+                
+                <div id="about" class="page-content">
+                    <details open>
+                        <summary>
+                            <h2 class="section-title"><i class="fas fa-info-circle"></i> About Me</h2>
+                            <div class="toggle-arrow">▼</div>
+                        </summary>
+                        <div class="section-content">
+                            <p>Hello! I'm Malak Salama, a web developer based in Gaza. I have a passion for creating 
+                            beautiful, functional websites that provide great user experiences.</p>
+                            
+                            <p>I graduated from Al-Aqsa University with a degree in Computer Science, and since then 
+                            I've been working on various web projects, both as a freelancer and as part of creative teams.</p>
+                            
+                            <p>When I'm not coding, you can find me studying the Quran, reading about Islamic history, 
+                            or exploring the beautiful beaches of Gaza.</p>
+                        </div>
+                    </details>
+                    
+                    <details open>
+                        <summary>
+                            <h2 class="section-title"><i class="fas fa-road"></i> My Journey</h2>
+                            <div class="toggle-arrow">▼</div>
+                        </summary>
+                        <div class="section-content">
+                            <p>My journey in web development began when I was in high school. I was fascinated by how 
+                            websites worked and started learning HTML and CSS on my own. This curiosity turned into a 
+                            passion that led me to pursue a degree in Computer Science.</p>
+                            
+                            <p>During my university years, I worked on several projects that helped me hone my skills. 
+                            I participated in coding competitions and attended tech meetups where I met like-minded 
+                            individuals who shared my enthusiasm for web technologies.</p>
+                            
+                            <p>After graduation, I started freelancing, working with clients from around the world. 
+                            Each project has been a learning experience, helping me grow both technically and professionally.</p>
+                        </div>
+                    </details>
+                </div>
+                
+                <div id="portfolio" class="page-content">
+                    <details open>
+                        <summary>
+                            <h2 class="section-title"><i class="fas fa-laptop-code"></i> Web Development Projects</h2>
+                            <div class="toggle-arrow">▼</div>
+                        </summary>
+                        <div class="section-content">
+                            <div class="portfolio-grid">
+                                <div class="portfolio-item">
+                                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="E-commerce Website" class="portfolio-image">
+                                    <div class="portfolio-details">
+                                        <h3><i class="fas fa-shopping-cart"></i> E-commerce Website</h3>
+                                        <p>A fully responsive online store with shopping cart functionality.</p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-item">
+                                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Corporate Website" class="portfolio-image">
+                                    <div class="portfolio-details">
+                                        <h3><i class="fas fa-building"></i> Corporate Website</h3>
+                                        <p>A modern website for a local business with CMS integration.</p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-item">
+                                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Blog Platform" class="portfolio-image">
+                                    <div class="portfolio-details">
+                                        <h3><i class="fas fa-blog"></i> Blog Platform</h3>
+                                        <p>A custom blogging platform with user authentication.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                    
+                    <details open>
+                        <summary>
+                            <h2 class="section-title"><i class="fas fa-paint-brush"></i> UI/UX Design Projects</h2>
+                            <div class="toggle-arrow">▼</div>
+                        </summary>
+                        <div class="section-content">
+                            <div class="portfolio-grid">
+                                <div class="portfolio-item">
+                                    <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mobile App Design" class="portfolio-image">
+                                    <div class="portfolio-details">
+                                        <h3><i class="fas fa-mobile-alt"></i> Mobile App Design</h3>
+                                        <p>User interface design for a fitness tracking application.</p>
+                                    </div>
+                                </div>
+                                <div class="portfolio-item">
+                                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Website Redesign" class="portfolio-image">
+                                    <div class="portfolio-details">
+                                        <h3><i class="fas fa-redo"></i> Website Redesign</h3>
+                                        <p>Complete redesign of an existing website for better user experience.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+                
+                <div id="contact" class="page-content">
+                    <details open>
+                        <summary>
+                            <h2 class="section-title"><i class="fas fa-envelope"></i> Get In Touch</h2>
+                            <div class="toggle-arrow">▼</div>
+                        </summary>
+                        <div class="section-content">
+                            <form class="contact-form" id="contactForm">
+                                <div class="form-group">
+                                    <label for="name"><i class="fas fa-user"></i> Name:</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject"><i class="fas fa-tag"></i> Subject:</label>
+                                    <input type="text" id="subject" name="subject">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message"><i class="fas fa-comment"></i> Message:</label>
+                                    <textarea id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                            </form>
+                        </div>
+                    </details>
+                </div>
+                
+                <div id="privacy" class="page-content">
+                    <section class="content-section">
+                        <h2 class="section-title"><i class="fas fa-shield-alt"></i> Privacy Policy</h2>
+                        
+                        <div class="privacy-section">
+                            <h3><i class="fas fa-info-circle"></i> Introduction</h3>
+                            <p>This Privacy Policy describes how your personal information is collected, used, and shared when you visit or interact with this portfolio website.</p>
+                        </div>
+                        
+                        <div class="privacy-section">
+                            <h3><i class="fas fa-database"></i> Information We Collect</h3>
+                            <p>When you visit the Site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device. Additionally, as you browse the Site, we collect information about the individual web pages or products that you view, what websites or search terms referred you to the Site, and information about how you interact with the Site.</p>
+                            <p>We collect personal information that you voluntarily provide to us when you:</p>
+                            <ul>
+                                <li>Fill out our contact form</li>
+                                <li>Subscribe to our newsletter</li>
+                                <li>Interact with our social media pages</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="privacy-section">
+                            <h3><i class="fas fa-cog"></i> How We Use Your Information</h3>
+                            <p>We use the information we collect to:</p>
+                            <ul>
+                                <li>Respond to your inquiries and provide customer support</li>
+                                <li>Improve and optimize our website</li>
+                                <li>Understand and analyze how you use our website</li>
+                                <li>Communicate with you about updates or offers</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="privacy-section">
+                            <h3><i class="fas fa-share-square"></i> Sharing Your Information</h3>
+                            <p>We do not sell or share your personal information with third parties except in the following cases:</p>
+                            <ul>
+                                <li>When required by law</li>
+                                <li>To protect our rights or the rights of others</li>
+                                <li>With service providers who assist us in operating our website (under confidentiality agreements)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="privacy-section">
+                            <h3><i class="fas fa-cookie-bite"></i> Cookies</h3>
+                            <p>We use cookies to enhance your experience on our site. Cookies are small data files stored on your browser that help us understand how you use our site and remember your preferences.</p>
+                            <p>You can choose to disable cookies through your browser settings, but this may affect certain features of the site.</p>
+                        </div>
+                        
+                        <div class="privacy-section">
+                            <h3><i class="fas fa-lock"></i> Data Security</h3>
+                            <p>We implement reasonable security measures to protect your personal information from unauthorized access, alteration, or destruction. However, no internet transmission is completely secure, and we cannot guarantee absolute security.</p>
+                        </div>
+                        
+                        <div class="privacy-section">
+                            <h3><i class="fas fa-calendar-alt"></i> Changes to This Policy</h3>
+                            <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+                        </div>
+                        
+                        <div class="privacy-section">
+                            <h3><i class="fas fa-question-circle"></i> Contact Us</h3>
+                            <p>If you have any questions about this Privacy Policy, please contact us through the contact form on this website.</p>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+        
+        <footer>
+            <div class="footer-contact">
+                <i class="fas fa-envelope"></i> malak@example.com
+                <i class="fas fa-phone"></i> +123 456 7890
+                <i class="fas fa-map-marker-alt"></i> Gaza City, Palestine
+            </div>
+            <div>Copyright © 2025 Malak Salama</div>
+            <div class="footer-links">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a onclick="showPage('privacy')"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        // Page Navigation System
+        function showPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active-page');
+            });
+            
+            document.getElementById(pageId).classList.add('active-page');
+            updateSidebar(pageId);
+            updatePageTitle(pageId);
+            window.scrollTo(0, 0);
+        }
+        
+        function updateSidebar(pageId) {
+            const sidebar = document.getElementById('sidebar-content');
+            let sidebarHtml = '';
+            
+            switch(pageId) {
+                case 'home':
+                    sidebarHtml = `
+                        <div class="sidebar-section">
+                            <div class="sidebar-title"><i class="fas fa-door-open"></i> Welcome Message</div>
+                            <div class="sidebar-content">
+                                Welcome to my portfolio website. Here you can find information about my work, skills, and projects.
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <div class="sidebar-title"><i class="fas fa-code"></i> My Skills</div>
+                            <div class="sidebar-content">
+                                <ul>
+                                    <li><i class="fab fa-html5"></i> HTML5 & CSS3</li>
+                                    <li><i class="fab fa-js"></i> JavaScript</li>
+                                    <li><i class="fab fa-react"></i> React</li>
+                                    <li><i class="fab fa-node-js"></i> Node.js</li>
+                                    <li><i class="fas fa-paint-brush"></i> UI/UX Design</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-section contact-info">
+                            <div class="sidebar-title"><i class="fas fa-id-card"></i> Quick Contact</div>
+                            <div class="sidebar-content">
+                                <a href="mailto:malak@example.com"><i class="fas fa-envelope"></i> malak@example.com</a>
+                                <a href="tel:+1234567890"><i class="fas fa-phone"></i> +123 456 7890</a>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'about':
+                    sidebarHtml = `
+                        <div class="sidebar-section">
+                            <div class="sidebar-title"><i class="fas fa-user-circle"></i> About Me</div>
+                            <div class="sidebar-content">
+                                I'm a passionate web developer with expertise in front-end technologies. 
+                                I love creating beautiful, functional websites that make an impact.
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <div class="sidebar-title"><i class="fas fa-graduation-cap"></i> Education</div>
+                            <div class="sidebar-content">
+                                <p><strong><i class="fas fa-university"></i> Al-Aqsa University</strong><br>
+                                B.Sc. in Computer Science<br>
+                                2018-2022</p>
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-section contact-info">
+                            <div class="sidebar-title"><i class="fas fa-share-alt"></i> Connect</div>
+                            <div class="sidebar-content">
+                                <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                                <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'portfolio':
+                    sidebarHtml = `
+                        <div class="sidebar-section">
+                            <div class="sidebar-title"><i class="fas fa-folder-open"></i> Portfolio Categories</div>
+                            <div class="sidebar-content">
+                                <ul>
+                                    <li><a href="#web"><i class="fas fa-laptop-code"></i> Web Development</a></li>
+                                    <li><a href="#design"><i class="fas fa-paint-brush"></i> UI/UX Design</a></li>
+                                    <li><a href="#mobile"><i class="fas fa-mobile-alt"></i> Mobile Apps</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <div class="sidebar-title"><i class="fas fa-quote-left"></i> Testimonials</div>
+                            <div class="sidebar-content">
+                                "Malak's work is exceptional. She delivered our project on time and exceeded our expectations."
+                                <br><br>- Happy Client
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'contact':
+                    sidebarHtml = `
+                        <div class="sidebar-section">
+                            <div class="sidebar-title"><i class="fas fa-address-book"></i> Contact Info</div>
+                            <div class="sidebar-content">
+                                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> malak@example.com</p>
+                                <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +123 456 7890</p>
+                                <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Gaza City, Palestine</p>
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <div class="sidebar-title"><i class="fas fa-clock"></i> Business Hours</div>
+                            <div class="sidebar-content">
+                                <p><i class="fas fa-calendar-day"></i> Monday-Friday: 9am-5pm</p>
+                                <p><i class="fas fa-calendar-day"></i> Saturday: 10am-2pm</p>
+                                <p><i class="fas fa-calendar-day"></i> Sunday: Closed</p>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'privacy':
+                    sidebarHtml = `
+                        <div class="sidebar-section">
+                            <div class="sidebar-title"><i class="fas fa-shield-alt"></i> Privacy Policy</div>
+                            <div class="sidebar-content">
+                                This page outlines how we collect, use, and protect your personal information.
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <div class="sidebar-title"><i class="fas fa-lock"></i> Your Rights</div>
+                            <div class="sidebar-content">
+                                <ul>
+                                    <li>Right to access your data</li>
+                                    <li>Right to request deletion</li>
+                                    <li>Right to opt-out of marketing</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-section contact-info">
+                            <div class="sidebar-title"><i class="fas fa-question-circle"></i> Questions?</div>
+                            <div class="sidebar-content">
+                                <a href="#" onclick="showPage('contact')"><i class="fas fa-envelope"></i> Contact Us</a>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                default:
+                    sidebarHtml = `
+                        <div class="sidebar-section">
+                            <div class="sidebar-title"><i class="fas fa-home"></i> Welcome</div>
+                            <div class="sidebar-content">
+                                Please select a page from the menu above.
+                            </div>
+                        </div>
+                    `;
+            }
+            
+            sidebar.innerHTML = sidebarHtml;
+        }
+        
+        function updatePageTitle(pageId) {
+            let title = 'My Portfolio - Web Developer';
+            
+            switch(pageId) {
+                case 'home':
+                    title = 'My Portfolio - Home';
+                    break;
+                case 'about':
+                    title = 'About Me - My Portfolio';
+                    break;
+                case 'portfolio':
+                    title = 'My Portfolio - Projects';
+                    break;
+                case 'contact':
+                    title = 'Contact Me - My Portfolio';
+                    break;
+                case 'privacy':
+                    title = 'Privacy Policy - My Portfolio';
+                    break;
+            }
+            
+            document.title = title;
+        }
+        
+        function initContactForm() {
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
+                    
+                    alert(`Thank you, ${name}! Your message has been received. We'll contact you at ${email} soon.`);
+                    contactForm.reset();
+                });
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('home');
+            initContactForm();
+        });
+    </script>
+</body>
+</html>
